@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta el clima</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-blue-200 min-h-screen flex flex-col items-center justify-center p-6">
+
+  <div class="w-full max-w-md bg-white shadow-lg rounded-2xl p-6">
+    <h1 class="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-6">☁️ Consulta el clima</h1>
+
+    <form method="POST" class="flex gap-2 mb-6">
+      <input name="ciudad" type="text" placeholder="Ej: Lima, Madrid, Tokio"
+             class="flex-grow px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+             required>
+      <button type="submit"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg shadow">
+        Buscar
+      </button>
+    </form>
+
+    {% if datos.error %}
+      <p class="text-red-600 text-center">{{ datos.error }}</p>
+    {% elif datos.ciudad %}
+      <div class="text-center">
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">🌎 Clima en {{ datos.ciudad }}</h2>
+        <p class="text-4xl font-bold text-blue-600">{{ datos.temperatura }}°C</p>
+        <p class="text-gray-700 text-lg">{{ datos.estado }}</p>
+        <img src="{{ datos.icono }}" alt="Icono clima" class="mx-auto mt-4 w-20 h-20">
+      </div>
+    {% endif %}
+  </div>
+
+  <footer class="mt-8 text-gray-600 text-sm">
+    Desarrollado por <strong>Benjamín Oscco</strong> – Proyecto WeatherAPI 🌤️
+  </footer>
+</body>
+</html>
