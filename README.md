@@ -2,7 +2,7 @@
 
 Aplicación web simple desarrollada con **Flask** para consultar el clima actual de cualquier ciudad usando la API de [WeatherAPI](https://www.weatherapi.com/).
 
-![Portada del proyecto](A_digital_project_banner_showing_a_weather_app_interface.png)
+![Portada del proyecto](portada.png)
 
 ---
 
